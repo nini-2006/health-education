@@ -1,0 +1,246 @@
+沒問題，這正是我的專業。
+身為資深前端工程師，針對「長輩閱讀」與「醫療衛教」的需求，我設計了這個單頁式（Single Page）網頁模板。
+設計重點說明：
+ * 視覺配色：使用 #E3F2FD (淡藍) 作為背景，搭配 #1565C0 (深醫護藍) 作為強調色，建立專業且令人放鬆的視覺感。
+ * 無障礙設計 (Accessibility)：
+   * 字體加強：預設字體設定為 20px，標題更大，行高設定 1.8，避免長輩閱讀吃力。
+   * 高對比度：確保文字與背景有足夠對比。
+   * 區塊分明：使用卡片式設計（Card Layout），資訊不擁擠。
+ * 技術規格：
+   * 純 HTML5 + CSS3。
+   * RWD 響應式設計（手機、平板、電腦皆可讀）。
+   * 完全無外部連結，複製代碼即可運作。
+由於您尚未提供具體文字，我先以**「高血壓防治」**作為範例內容填入。您可以直接複製以下程式碼存成 index.html，或將您的文字內容貼給我，我幫您替換進去。
+您的衛教網頁程式碼
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康衛教資訊網</title>
+    <style>
+        /* --- 基礎設定 (Reset & Base) --- */
+        :root {
+            --primary-color: #1565C0;    /* 醫護深藍 - 標題與強調 */
+            --bg-color: #E3F2FD;         /* 淡藍背景 - 柔和護眼 */
+            --card-bg: #FFFFFF;          /* 純白卡片 */
+            --text-main: #333333;        /* 深灰字體 - 閱讀舒適 */
+            --text-light: #555555;       /* 次要文字 */
+            --accent-color: #D32F2F;     /* 警示紅 - 用於注意事項 */
+            --spacing-unit: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; /* 確保中文顯示優化 */
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8; /* 增加行高，方便長輩閱讀 */
+            font-size: 20px;  /* 基礎字體加大 */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- 佈局容器 (Layout) --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- 頁首 (Header) --- */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* --- 卡片式內容 (Cards) --- */
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 輕微陰影增加層次 */
+            border-top: 5px solid var(--primary-color); /* 頂部色條裝飾 */
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #E0E0E0;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 標題前的小裝飾 */
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 30px;
+            background-color: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify; /* 左右對齊 */
+        }
+
+        /* --- 列表樣式 (Lists) --- */
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* --- 強調區塊 (Highlight Box) --- */
+        .highlight-box {
+            background-color: #FFF3E0;
+            border-left: 6px solid #FF9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h3 {
+            color: #E65100;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- 重要警示 (Warning Box) --- */
+        .warning-box {
+            background-color: #FFEBEE;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* --- 頁尾 (Footer) --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* --- 按鈕 (Button - 若有需要) --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: opacity 0.3s;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- RWD 手機版調整 --- */
+        @media (max-width: 600px) {
+            body {
+                font-size: 18px; /* 手機版字體稍微縮小一點點，但仍保持大字 */
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>【 衛教主題名稱 】</h1>
+            <div class="subtitle">守護您的健康，從了解開始</div>
+        </header>
+
+        <main>
+            <section>
+                <h2>1. 這是什麼疾病？</h2>
+                <p>
+                    這裡放入疾病的簡介。例如：高血壓是指血液在血管中流動時，對血管壁造成的壓力過高。長期的血壓過高會增加心臟負荷，並可能導致嚴重的併發症。
+                </p>
+                <p>
+                    正常血壓值通常定義為收縮壓低於 120 mmHg，舒張壓低於 80 mmHg。
+                </p>
+            </section>
+
+            <section>
+                <h2>2. 常見症狀有哪些？</h2>
+                <p>初期可能沒有明顯症狀，但若出現以下情況請多加留意：</p>
+                <ul>
+                    <li>頭暈、頭痛（特別是後腦勺）。</li>
+                    <li>視力模糊或眼前發黑。</li>
+                    <li>呼吸急促、胸悶。</li>
+                    <li>容易疲倦、心悸。</li>
+                </ul>
+                <div class="highlight-box">
+                    <h3>💡 貼心提醒</h3>
+                    <p>許多人患病初期完全沒有感覺，因此被稱為「隱形殺手」。定期量測是最好的預防方式。</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>3. 日常生活該注意什麼？</h2>
+                <p>透過生活習慣的改變，可以有效控制病情：</p>
+                <ol>
+                    <li><strong>飲食控制：</strong> 少鹽、少油、多吃蔬菜水果。</li>
+                    <li><strong>規律運動：</strong> 每週至少運動 3 次，每次 30 分鐘，如快走。</li>
+                    <li><strong>戒菸限酒：</strong> 菸酒會直接導致血管收縮，使病情加重。</li>
+                    <li><strong>情緒管理：</strong> 保持心情平穩，避免過度激動或壓力過大。</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>4. 何時該立即就醫？</h2>
+                <div class="warning-box">
+                    ⚠️ 如果您感到劇烈頭痛、半邊肢體無力、說話不清或胸痛難耐，請立即撥打 119 求助！
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>本資訊僅供衛教參考，不能取代醫師診斷。<br>如有身體不適，請盡速就醫。</p>
+            <br>
+            <p>© 2024 健康衛教資訊網</p>
+        </footer>
+    </div>
+
+</body>
+</html>
