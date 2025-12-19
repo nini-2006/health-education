@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健康衛教資訊網</title>
+    <title>穩住血壓，健康笑嘻嘻！｜高血壓居家照顧</title>
     <style>
-        /* --- 基礎設定 (Reset & Base) --- */
+        /* --- 基礎設定 Reset & Base --- */
         :root {
-            --primary-color: #1565C0;    /* 醫護深藍 - 標題與強調 */
-            --bg-color: #E3F2FD;         /* 淡藍背景 - 柔和護眼 */
-            --card-bg: #FFFFFF;          /* 純白卡片 */
-            --text-main: #333333;        /* 深灰字體 - 閱讀舒適 */
-            --text-light: #555555;       /* 次要文字 */
-            --accent-color: #D32F2F;     /* 警示紅 - 用於注意事項 */
-            --spacing-unit: 24px;
+            --primary-color: #0077C8; /* 醫療藍：專業、穩重 */
+            --accent-color: #FF8F00;  /* 溫暖橘：重點提示 */
+            --bg-color: #F0F7FA;      /* 極淡藍背景：護眼、舒適 */
+            --text-main: #333333;     /* 深灰：比純黑柔和，易閱讀 */
+            --text-light: #555555;
+            --white: #FFFFFF;
+            --radius: 16px;
+            --shadow: 0 4px 12px rgba(0, 119, 200, 0.1);
         }
 
         * {
@@ -23,147 +24,231 @@
         }
 
         body {
-            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; /* 確保中文顯示優化 */
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.8; /* 增加行高，方便長輩閱讀 */
-            font-size: 20px;  /* 基礎字體加大 */
+            line-height: 1.8; /* 加大行高，提升閱讀舒適度 */
+            font-size: 20px;  /* 基礎字體加大，適合長輩 */
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 佈局容器 (Layout) --- */
+        /* --- 佈局 Layout --- */
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* --- 頁首 (Header) --- */
         header {
             text-align: center;
-            padding: 40px 0;
-            margin-bottom: 20px;
+            padding: 40px 0 20px;
         }
 
-        h1 {
+        .main-title {
             color: var(--primary-color);
             font-size: 2.2rem;
-            margin-bottom: 10px;
             font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.3;
         }
 
         .subtitle {
+            font-size: 1.2rem;
             color: var(--text-light);
-            font-size: 1.1rem;
+            background: #fff;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        /* --- 卡片式內容 (Cards) --- */
-        section {
-            background: var(--card-bg);
-            border-radius: 16px;
+        /* --- 通用元件 Components --- */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* 輕微陰影增加層次 */
-            border-top: 5px solid var(--primary-color); /* 頂部色條裝飾 */
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary-color);
         }
 
         h2 {
             color: var(--primary-color);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            border-bottom: 2px solid #E0E0E0;
-            padding-bottom: 10px;
             display: flex;
             align-items: center;
+            border-bottom: 2px solid #E3F2FD;
+            padding-bottom: 10px;
         }
 
-        /* 標題前的小裝飾 */
         h2::before {
             content: '';
             display: inline-block;
-            width: 10px;
-            height: 30px;
-            background-color: var(--primary-color);
-            margin-right: 15px;
-            border-radius: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 12px;
         }
 
         p {
             margin-bottom: 1.5rem;
-            text-align: justify; /* 左右對齊 */
+            text-align: justify;
         }
 
-        /* --- 列表樣式 (Lists) --- */
-        ul, ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
+        strong {
+            color: var(--primary-color);
+            font-weight: 900;
+            background: linear-gradient(120deg, transparent 60%, #BBDEFB 60%);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 16px;
+            padding-left: 1.5em;
+            position: relative;
         }
 
-        /* --- 強調區塊 (Highlight Box) --- */
-        .highlight-box {
-            background-color: #FFF3E0;
-            border-left: 6px solid #FF9800;
+        li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* --- 第一招：722 特效 --- */
+        .rule-722 {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .rule-item {
+            background: #E1F5FE;
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .big-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .rule-desc {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .note-box {
+            background-color: #FFF3E0; /* 淡橘色提醒背景 */
+            border-left: 6px solid var(--accent-color);
             padding: 20px;
             border-radius: 8px;
-            margin: 20px 0;
+            font-size: 1.1rem;
+            margin-top: 20px;
         }
 
-        .highlight-box h3 {
-            color: #E65100;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        /* --- 重要警示 (Warning Box) --- */
-        .warning-box {
-            background-color: #FFEBEE;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 20px;
-            border-radius: 12px;
+        .note-title {
+            color: #D84315;
             font-weight: bold;
-            text-align: center;
-            margin-top: 30px;
+            display: block;
+            margin-bottom: 8px;
         }
 
-        /* --- 頁尾 (Footer) --- */
+        /* --- Q&A 區塊 --- */
+        .qa-item {
+            margin-bottom: 24px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 24px;
+        }
+
+        .qa-item:last-child {
+            border-bottom: none;
+        }
+
+        .question {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .question::before {
+            content: 'Q.';
+            background: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+        .answer {
+            padding-left: 50px;
+            color: var(--text-main);
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 40px 0;
-            font-size: 0.9rem;
+            padding: 40px 20px;
             color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        /* --- 按鈕 (Button - 若有需要) --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: opacity 0.3s;
-        }
-        .btn:hover {
-            opacity: 0.9;
+        .heart-icon {
+            color: #E91E63;
+            animation: beat 1.5s infinite;
         }
 
-        /* --- RWD 手機版調整 --- */
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- 手機版微調 --- */
         @media (max-width: 600px) {
             body {
-                font-size: 18px; /* 手機版字體稍微縮小一點點，但仍保持大字 */
+                font-size: 18px; /* 手機版字稍微縮小一點點以免太擠，但仍保持清晰 */
             }
-            h1 {
+            .main-title {
                 font-size: 1.8rem;
             }
-            section {
+            .card {
                 padding: 20px;
+            }
+            .rule-722 {
+                flex-direction: column;
+            }
+            .answer {
+                padding-left: 0;
+                margin-top: 10px;
+                background: #F5F5F5;
+                padding: 15px;
+                border-radius: 8px;
             }
         }
     </style>
@@ -171,62 +256,107 @@
 <body>
 
     <div class="container">
+        
         <header>
-            <h1>【高血壓病人居家照護】</h1>
-            <div class="subtitle">守護您的健康，從了解開始</div>
+            <div class="subtitle">💖 護理師的貼心小叮嚀</div>
+            <h1 class="main-title">穩住血壓，健康笑嘻嘻！<br>高血壓的居家照顧小撇步</h1>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">
+                親愛的阿公、阿嬤，大家好！<br>
+                高血壓像是個「老朋友」，只要用對方法照顧，<br>
+                就能吃好睡好，過著開心自在的日子。
+            </p>
         </header>
 
         <main>
-            <section>
-                <h2>1. 這是什麼疾病？</h2>
-                <p>
-                    這裡放入疾病的簡介。例如：高血壓是指血液在血管中流動時，對血管壁造成的壓力過高。長期的血壓過高會增加心臟負荷，並可能導致嚴重的併發症。
-                </p>
-                <p>
-                    正常血壓值通常定義為收縮壓低於 120 mmHg，舒張壓低於 80 mmHg。
-                </p>
-            </section>
+            <section class="card">
+                <h2>第一招：量血壓有口訣，記得「722」</h2>
+                <p>量血壓不是有量就好，要量對時間才準確！請把這個<strong>「722」</strong>（請唸：七、二、二）口訣記在心裡：</p>
+                
+                <div class="rule-722">
+                    <div class="rule-item">
+                        <span class="big-number">7</span>
+                        <span class="rule-desc">連續量 7 天</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="big-number">2</span>
+                        <span class="rule-desc">一天量 2 個時段<br><small>(起床後、睡覺前)</small></span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="big-number">2</span>
+                        <span class="rule-desc">每次量 2 遍<br><small>(取平均值)</small></span>
+                    </div>
+                </div>
 
-            <section>
-                <h2>2. 常見症狀有哪些？</h2>
-                <p>初期可能沒有明顯症狀，但若出現以下情況請多加留意：</p>
                 <ul>
-                    <li>頭暈、頭痛（特別是後腦勺）。</li>
-                    <li>視力模糊或眼前發黑。</li>
-                    <li>呼吸急促、胸悶。</li>
-                    <li>容易疲倦、心悸。</li>
+                    <li><strong>早上起床後：</strong> 上完廁所、還沒吃早餐、還沒吃藥前量。</li>
+                    <li><strong>晚上睡覺前：</strong> 洗完澡、心情放鬆準備睡覺時量。</li>
                 </ul>
-                <div class="highlight-box">
-                    <h3>💡 貼心提醒</h3>
-                    <p>許多人患病初期完全沒有感覺，因此被稱為「隱形殺手」。定期量測是最好的預防方式。</p>
+
+                <div class="note-box">
+                    <span class="note-title">🔔 測量小叮嚀</span>
+                    量的時候手心向上，壓脈帶綁在跟心臟一樣高的地方，背靠著椅背，腳平放在地板，不要翹腳、不要講話，深呼吸放輕鬆。
                 </div>
             </section>
 
-            <section>
-                <h2>3. 日常生活該注意什麼？</h2>
-                <p>透過生活習慣的改變，可以有效控制病情：</p>
-                <ol>
-                    <li><strong>飲食控制：</strong> 少鹽、少油、多吃蔬菜水果。</li>
-                    <li><strong>規律運動：</strong> 每週至少運動 3 次，每次 30 分鐘，如快走。</li>
-                    <li><strong>戒菸限酒：</strong> 菸酒會直接導致血管收縮，使病情加重。</li>
-                    <li><strong>情緒管理：</strong> 保持心情平穩，避免過度激動或壓力過大。</li>
-                </ol>
+            <section class="card">
+                <h2>第二招：吃飯清淡點，也能很美味</h2>
+                <p>其實，鹽分吃太多，水分就會積在身體裡，血壓就會衝高高！</p>
+                <ul>
+                    <li><strong>少喝湯、少沾醬：</strong> 火鍋湯、牛肉湯和滷汁通常都很鹹，盡量吃料就好；醬油膏、豆瓣醬能少用就少用。</li>
+                    <li><strong>用天然香氣來提味：</strong> 覺得沒味道怎麼辦？多用蔥、薑、蒜、洋蔥、九層塔，或是擠一點檸檬汁。不用加太多鹽巴，飯菜一樣香噴噴！</li>
+                    <li><strong>多吃「高鉀」蔬果：</strong> 像是香蕉、奇異果、深綠色蔬菜，可以幫忙把身體多餘的鹽分排出去。<br><em>（註：腎臟病友請先問醫師喔！）</em></li>
+                </ul>
             </section>
 
-            <section>
-                <h2>4. 何時該立即就醫？</h2>
-                <div class="warning-box">
-                    ⚠️ 如果您感到劇烈頭痛、半邊肢體無力、說話不清或胸痛難耐，請立即撥打 119 求助！
+            <section class="card">
+                <h2>第三招：吃藥要規律，千萬別「憑感覺」</h2>
+                <p>這是最最最重要的一點！高血壓通常是沒有感覺的，等有感覺時，往往已經很嚴重了。</p>
+                <ul>
+                    <li><strong>不要自己當醫生：</strong> 不能覺得「今天頭不暈」就不吃藥。</li>
+                    <li><strong>藥不能停、也不能亂加：</strong> 請準時吃醫師開的藥。不舒服請回診討論，不要聽鄰居推薦就亂吃。</li>
+                    <li><strong>簡單動一動：</strong> 每天去公園散步、快走 30 分鐘，走到有點流汗、可以講話但不能唱歌的程度，對降血壓非常有幫助！</li>
+                </ul>
+            </section>
+
+            <section class="card" style="background-color: #FAFAFA;">
+                <h2>🤔 大家最常問的問題 (Q&A)</h2>
+                
+                <div class="qa-item">
+                    <div class="question">只有量到血壓高，但身體沒有不舒服，真的要吃藥嗎？</div>
+                    <div class="answer">
+                        <strong>真的要！</strong>高血壓是「隱形殺手」。吃藥是為了預防未來血管變硬、中風或心臟病，是為了「預防未來出大事」，不是為了現在舒服才吃喔！
+                    </div>
                 </div>
+
+                <div class="qa-item">
+                    <div class="question">如果忘記吃藥了，想起來的時候要不要補吃？</div>
+                    <div class="answer">
+                        這要看時間點！
+                        <br>● <strong>剛忘記不久：</strong>趕快補吃。
+                        <br>● <strong>快到下次吃藥時間：</strong>跳過這一次，下次正常吃。
+                        <br>❌ <strong>千萬不要一次吃兩份藥</strong>，這樣非常危險！
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="question">吃血壓藥可以吃葡萄柚或喝葡萄柚汁嗎？</div>
+                    <div class="answer">
+                        <strong>最好不要喔！</strong>葡萄柚會讓藥效過強，造成低血壓或副作用。建議改吃蘋果、芭樂比較安全。
+                    </div>
+                </div>
+            </section>
+
+            <section class="card" style="text-align: center; border-top: none; background: transparent; box-shadow: none;">
+                <h3 style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 15px;">🌟 您的健康，是全家人的福氣</h3>
+                <p>控制血壓是為了讓自己擁有更強壯的身體，能夠陪孫子玩、去旅遊、享受美食。<br>我們慢慢來，一天進步一點點就好。</p>
+                <p style="font-weight: bold; font-size: 1.3rem;">祝大家 血壓穩穩，心情天天美麗！</p>
             </section>
         </main>
 
         <footer>
-            <p>本資訊僅供衛教參考，不能取代醫師診斷。<br>如有身體不適，請盡速就醫。</p>
-            <br>
-            <p>© 2024 健康衛教資訊網</p>
+            <p>Made with <span class="heart-icon">❤</span> for your health</p>
         </footer>
-    </div>
 
+    </div>
 </body>
 </html>
